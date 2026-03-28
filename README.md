@@ -1,78 +1,96 @@
-# Dapur Pusaka Nusantara — Restaurant Prototype
+# 🍲 Dapur Pusaka Nusantara — Restaurant Prototype
 
 [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/react-%2320232d.svg?style=flat&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Lucide React](https://img.shields.io/badge/icons-lucide--react-eb4034)](https://lucide.dev/)
 
-A modern, high-performance web prototype for **Dapur Pusaka Nusantara**, a fictional Indonesian traditional restaurant located in Jakarta. This project serves as a comprehensive case study for building a premium, localized dining experience with a focus on usability, visual storytelling, and seamless communication.
+A premium, modern web prototype for **Dapur Pusaka Nusantara**, a fictional Indonesian traditional restaurant located in Kemang, Jakarta. This project serves as a case study for building high-performance, localized dining experiences with a deep focus on **visual storytelling** and **seamless WhatsApp communication**.
 
-## 🌟 Key Features
+![Dapur Pusaka Nusantara Preview](https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
-- **🌍 Bilingual Support (i18n)**: One-click toggle between Indonesian and English, ensuring accessibility for both locals and international food enthusiasts.
-- **🍲 Dynamic Categorized Menu**: Explore a rich selection of Indonesian classics (Rendang, Sate, Gado-Gado) with details on spice levels, allergens, and descriptions.
-- **👨‍👩‍👧‍👦 Family & Group Sets**: Carefully curated meal packages designed for families of 4, 6, or couples, optimized for quick decision-making.
-- **📱 Responsive & Interactive**: A mobile-first design with smooth micro-interactions, hover effects, and a sticky navigation bar for seamless browsing across all devices.
-- **💬 WhatsApp Integration**: A simulated "Fast-Order" flow that bridges the gap between digital browsing and real-world ordering via WhatsApp.
-- **✨ Premium UI/UX**: Built with a sophisticated color palette (Gold & Earth tones) and elegant typography using *Playfair Display* and *Plus Jakarta Sans*.
-- **🔍 Comprehensive FAQ**: An interactive FAQ section to address common logistical queries like catering, delivery areas, and allergy concerns.
+---
 
-## 🛠️ Technology Stack
+## 🌟 Premium Features
 
-- **Core**: [React 18](https://reactjs.org/) + [Vite](https://vitejs.dev/) for ultra-fast development and optimized production builds.
-- **Language**: [TypeScript](https://www.typescriptlang.org/) for robust, type-safe development.
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) for a modern, utility-first design system.
-- **Icons**: [Lucide React](https://lucide.dev/) for crisp, scalable vector icons.
-- **Backend Integration**: Ready for [Supabase](https://supabase.com/) for data persistence and authentication.
+- **🌍 Smart Bilingual Support (i18n)**: Seamlessly toggle between **Indonesian** and **English** with persistent language state and automatic SEO metadata synchronization.
+- **🍛 Categorized Dining Experience**: A rich, interactive menu featuring Indonesian classics like *Rendang*, *Sate Ayam*, and *Gado-Gado*, complete with spice levels and allergen triggers.
+- **👨‍👩‍👧‍👦 Curated Family Bundles**: Targeted "Family Sets" for groups of 2, 4, or 6, designed to simplify high-frequency decision-making during peak hours.
+- **💬 "Fast-Order" WhatsApp API**: A specialized ordering logic that bridges digital browsing with real-world fulfillment via pre-filled, localized WhatsApp messages.
+- **📱 Mobile-First Craftsmanship**: High-performance responsive design featuring a sticky navigation system, smooth micro-interactions, and high-quality image lazy-loading.
+- **🎨 Elite Brand Identity**: A sophisticated UI/UX built on a luxury palette of **Gold & Earth tones**, utilizing premium typography (*Playfair Display* & *Plus Jakarta Sans*).
 
-## 📁 Project Structure
+---
 
-```text
+## 🛠️ Modern Tech Stack
+
+| Technology | Purpose |
+| :--- | :--- |
+| **React 18** | Core application framework with concurrent rendering. |
+| **Vite** | Ultra-fast next-gen build tool and development server. |
+| **TypeScript** | Type-safe development for robust business logic. |
+| **Tailwind CSS** | Custom utility-first design system with rich tokens. |
+| **Lucide Icons** | Crisp, scalable vector iconography. |
+| **Context API** | Lightweight global state for localized user preferences. |
+
+---
+
+## 📂 Architecture at a Glance
+
+```bash
 src/
-├── components/       # Reusable UI components (Hero, Menu, FAQ, etc.)
-├── contexts/         # React Contexts (Language, etc.)
-├── data/             # Static data, translations, and menu configurations
-├── types/            # TypeScript type definitions
-├── utils/            # Helper functions and business logic
-└── App.tsx           # Main application entry point
+├── components/       # UI modularity (Hero, Menu, FAQ, Location, etc.)
+│   └── ui/           # Low-level primitive components (MenuCard, SpiceIndicator)
+├── contexts/         # Global state logic (i18n Language Context)
+├── data/             # Centralized "Source of Truth" for menu & translations
+├── types/            # Strict TypeScript interface definitions
+├── utils/            # Logic for WhatsApp API and business helpers
+└── App.tsx           # Orchestration of the Landing Experience
 ```
+
+---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
+- **Node.js**: `v18.0.0` or higher
+- **npm**: `v9.0.0` or higher
 
-- Node.js (v18 or higher)
-- npm or yarn
-
-### Installation
+### Installation & Run
 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/sultanisaac26-create/Restaurant-Prototype.git
    ```
 
-2. **Navigate to the project folder:**
-   ```bash
-   cd Restaurant-Prototype
-   ```
-
-3. **Install dependencies:**
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-4. **Run the development server:**
+3. **Launch dev environment:**
    ```bash
    npm run dev
    ```
 
-The application will be available at `http://localhost:5173`.
-
-## 📝 Current Status
-
-> [!NOTE]  
-> This project is currently a **Functional Prototype**. While it features a fully interactive UI and real data management, payment gateways and real-time order tracking are simulated to showcase the user experience.
+The application will be accessible at: `http://localhost:5173`.
 
 ---
 
-Built with ❤️ by **Sultan Isaac**.
+## 📋 Current Project Status
+
+> [!IMPORTANT]
+> This repository is a **Functional Prototype**. While the UI, interactions, and localized logic are fully operational, real-world payment gateways and logistics tracking are currently **simulated** for demonstration purposes.
+
+---
+
+## ✍️ Author & Credits
+
+Designed and crafted with precision by **Sultan Isaac**.
+
+- **LinkedIn**: [Sultan Isaac](https://www.linkedin.com/in/sultan-isaac)
+- **Portfolio**: [Sultan Isaac Portfolio](https://sultanisaac.com)
+
+---
+© 2024 Dapur Pusaka Nusantara. Prototype for demo purposes.
