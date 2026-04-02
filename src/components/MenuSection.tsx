@@ -7,6 +7,8 @@ import { getOrderUrl } from '../utils/whatsapp';
 import MenuCard from './ui/MenuCard';
 import type { MenuTab } from '../types';
 
+import { LAST_UPDATED } from '../data/heritage';
+
 const TABS: { key: MenuTab; labelKey: Parameters<typeof t>[1] }[] = [
   { key: 'bestseller', labelKey: 'menu_tab_bestseller' },
   { key: 'mains', labelKey: 'menu_tab_mains' },
@@ -66,10 +68,15 @@ export default function MenuSection() {
         )}
 
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-cream-200">
-          <p className="text-xs text-bark-500 flex items-center gap-1.5">
-            <AlertCircle size={12} />
-            {t(lang, 'menu_pricing_note')}
-          </p>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-bark-500 flex items-center gap-1.5">
+              <AlertCircle size={12} />
+              {t(lang, 'menu_pricing_note')}
+            </p>
+            <p className="text-[10px] uppercase tracking-widest text-bark-400 font-medium ml-4">
+              {lang === 'id' ? 'Menu Terakhir Diperbarui' : 'Menu Last Updated'}: {LAST_UPDATED}
+            </p>
+          </div>
           <a
             href={getOrderUrl(lang)}
             target="_blank"
