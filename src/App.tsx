@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import BestSellers from './components/BestSellers';
 import MenuSection from './components/MenuSection';
+import CulinaryHeritage from './components/CulinaryHeritage';
 import FamilySets from './components/FamilySets';
 import SocialProof from './components/SocialProof';
 import LocationHours from './components/LocationHours';
@@ -26,6 +27,7 @@ export default function App() {
             <Hero />
             <BestSellers />
             <MenuSection />
+            <CulinaryHeritage />
             <FamilySets />
             <SocialProof />
             <LocationHours />

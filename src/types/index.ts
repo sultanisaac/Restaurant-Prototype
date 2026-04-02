@@ -51,3 +51,15 @@ export interface FaqItem {
   answerIdLines: string[];
   answerEnLines: string[];
 }
+
+export interface HeritageStory {
+  id: string;
+  titleId: string;
+  titleEn: string;
+  excerptId: string;
+  excerptEn: string;
+  contentId: string[];
+  contentEn: string[];
+  imageUrl: string;
+  lastUpdated: string;
+}

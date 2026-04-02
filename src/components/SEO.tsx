@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
 import { faqItems, allMenuItems } from '../data/menu';
+import { heritageStories } from '../data/heritage';
 
 export default function SEO() {
   const { lang } = useLang();
@@ -45,6 +46,7 @@ export default function SEO() {
     'priceRange': 'RP',
     'acceptsReservations': 'True',
     'hasMenu': `${siteUrl}#menu`,
+    'knowsAbout': heritageStories.map(s => lang === 'id' ? s.titleId : s.titleEn),
   };
 
   // 3. Structured Data: FAQPage
@@ -62,7 +64,6 @@ export default function SEO() {
   };
 
   // 4. Structured Data: Local Menu Items
-  // Mapping first few best sellers to MenuItems to avoid massive script tags
   const menuSchema = {
     '@context': 'https://schema.org',
     '@type': 'Menu',
@@ -78,6 +79,31 @@ export default function SEO() {
         'priceCurrency': 'IDR',
       },
     })),
+  };
+
+  // 5. Structured Data: Articles/Heritage
+  const heritageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'itemListElement': heritageStories.map((story, idx) => ({
+      '@type': 'ListItem',
+      'position': idx + 1,
+      'item': {
+        '@type': 'Article',
+        'headline': lang === 'id' ? story.titleId : story.titleEn,
+        'image': story.imageUrl,
+        'dateModified': story.lastUpdated,
+        'author': {
+          '@type': 'Organization',
+          'name': 'Dapur Pusaka Nusantara'
+        },
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Dapur Pusaka Nusantara',
+          'logo': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg'
+        }
+      }
+    }))
   };
 
   return (
@@ -101,6 +127,9 @@ export default function SEO() {
       </script>
       <script type="application/ld+json">
         {JSON.stringify(menuSchema)}
+      </script>
+      <script type="application/ld+json">
+        {JSON.stringify(heritageSchema)}
       </script>
     </Helmet>
   );
