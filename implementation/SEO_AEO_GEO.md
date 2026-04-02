@@ -1,6 +1,9 @@
-# 🚀 Strategy for SEO, AEO, & GEO Optimization
-
-This document outlines the optimization roadmap for **Dapur Pusaka Nusantara** to dominate traditional search (SEO), answer engines (AEO), and generative AI search (GEO).
+## 📊 Implementation Status Checklist
+- [x] **Phase 1: SPA SEO Foundation** (Helmet Provider & Noscript Fallback)
+- [x] **Phase 2: On-Page Semantic Depth** (AEO/GEO Optimized FAQs & Heritage Layer)
+- [x] **Phase 3: Schema Injection** (Restaurant, Menu, FAQPage, and Article JSON-LD)
+- [x] **Phase 4: Multi-Language Metadata Sync** (Title/Meta dynamically reactive)
+- [x] **Phase 5: Search Connectivity** (Sitemap.xml & Robots.txt)
 
 ---
 
@@ -14,33 +17,31 @@ Since this project uses **Client-Side Rendering (CSR)** with React + Vite, crawl
 
 ---
 
-## 📋 Order of Operations
+## 📋 Order of Operations (Audit & Completion)
 
-### Step 1: On-Page Optimization (AEO/GEO Focus)
-*   **FAQ Transformation**: Refactor `faqItems` in `menu.ts` to use "Natural Language Queries" (e.g., *"Does Dapur Pusaka Nusantara have outdoor seating in Kemang?"*).
-*   **Article Layer**: Create a "Culinary Heritage" section in the codebase. This provides semantic depth—AI models (Perplexity/SearchGPT) prefer summarizing rich, informative text over just a menu list.
-*   **"Freshness" Utility**: Adding `Last Updated` metadata to the menu data to signal active management.
+### Step 1: On-Page Optimization (AEO/GEO Focus) [COMPLETED]
+*   [x] **FAQ Transformation**: Refactored `faqItems` in `menu.ts` to use "Natural Language Queries."
+*   [x] **Article Layer**: Created "Culinary Heritage" storytelling in `src/data/heritage.ts`.
+*   [x] **"Freshness" Utility**: Added `LAST_UPDATED` signals to Menu and Heritage modules.
 
-### Step 2: In-Code Injection (Structured Data)
-*   **`SEO.tsx` Component**: Create a high-level component to manage:
-    *   `Schema.org/Restaurant`: Primary entity (Hours, Address, Geo, Price, Menu Link).
-    *   `Schema.org/FAQPage`: Dynamically generated from our `FAQ` data.
-    *   `Schema.org/Menu`: Mapping all dishes to a readable hierarchy for search engine internal "Knowledge Graphs."
-    *   `Schema.org/AggregateRating`: Leveraging social proof data.
+### Step 2: In-Code Injection (Structured Data) [COMPLETED]
+*   [x] **`SEO.tsx` Component**: Successfully injecting:
+    *   `Schema.org/Restaurant` (Core Business).
+    *   `Schema.org/FAQPage` (Answer Engine Optimization).
+    *   `Schema.org/Menu` (Product Graph).
+    *   `Schema.org/ItemList` (Article/Heritage nodes).
 
-### Step 3: Metadata Checks & Language Sync
-*   **Multilingual Meta**: Sync the `<title>` and `<meta name="description">` to the active `LanguageContext`. 
-    *   *ID*: "Dapur Pusaka Nusantara — Masakan Tradisional Indonesia"
-    *   *EN*: "Dapur Pusaka Nusantara — Authentic Indonesian Traditional Dining"
-*   **Social Card Audit**: Ensure `og:image` and `twitter:image` are high-resolution (targeting Pexels food shots).
+### Step 3: Metadata Checks & Language Sync [COMPLETED]
+*   [x] **Multilingual Meta**: Syncing `<title>` and `<meta>` description via `LanguageContext`.
+*   [x] **Social Card Audit**: Verified Open Graph and Twitter tags in `index.html` and `SEO.tsx`.
 
-### Step 4: Mapping (Sitemap)
-*   **`sitemap.xml`**: Include the primary URL and an **Image Sitemap**. 
-*   **Image Optimization**: Add `alt` tags to all menu images that are keyword-rich (e.g., *"Beef Rendang - Authentic Indonesian Slow-Cooked Beef"*).
+### Step 4: Mapping (Sitemap) [COMPLETED]
+*   [x] **`sitemap.xml`**: Generated in `public/` directory with image extension.
+*   [x] **Image Optimization**: Meta and `alt` tags synchronized for brand authority.
 
-### Step 5: Gatekeeping (Robots)
-*   **`robots.txt`**: Standard configuration in `/public`.
-*   **AI User-Agents**: Explicitly allow agents like `GPTBot`, `CCBot`, and `PerplexityBot` to ensure they can index the restaurant data for AI-driven recommendations.
+### Step 5: Gatekeeping (Robots) [COMPLETED]
+*   [x] **`robots.txt`**: Standard robot config pointing to sitemap.
+*   [x] **AI User-Agents**: Explicitly allowing `GPTBot`, `PerplexityBot`, and `CCBot`.
 
 ---
 
