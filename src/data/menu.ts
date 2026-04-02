@@ -272,8 +272,8 @@ export const testimonials: Testimonial[] = [
 export const faqItems: FaqItem[] = [
   {
     id: 'f1',
-    questionId: 'Apakah bisa memesan dalam jumlah besar untuk katering atau kantor?',
-    questionEn: 'Can I place a large order for catering or the office?',
+    questionId: 'Apakah Dapur Pusaka Nusantara melayani pesanan katering untuk acara atau kantor?',
+    questionEn: 'Does Dapur Pusaka Nusantara provide catering for events or offices?',
     answerIdLines: [
       'Tentu! Kami melayani pesanan katering dan office catering.',
       'Harap hubungi kami minimal 1 hari sebelumnya untuk memastikan ketersediaan.',
@@ -287,8 +287,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f2',
-    questionId: 'Apakah ada pilihan menu tidak pedas?',
-    questionEn: 'Are there non-spicy menu options?',
+    questionId: 'Apakah ada pilihan menu yang tidak pedas di Dapur Pusaka Nusantara?',
+    questionEn: 'Are there non-spicy menu options available at Dapur Pusaka Nusantara?',
     answerIdLines: [
       'Ya! Beberapa menu kami seperti Soto Ayam, Bakso Urat, dan Gudeg Jogja tidak pedas.',
       'Kami juga bisa menyesuaikan tingkat kepedasan sesuai permintaan.',
@@ -302,8 +302,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f3',
-    questionId: 'Bisakah saya mencantumkan catatan alergi saat memesan?',
-    questionEn: 'Can I include allergy notes when ordering?',
+    questionId: 'Bisakah saya mencantumkan catatan alergi makanan saat memesan di Dapur Pusaka Nusantara?',
+    questionEn: 'Can I include food allergy notes when ordering from Dapur Pusaka Nusantara?',
     answerIdLines: [
       'Tentu, Anda bisa menuliskan catatan alergi di kolom "Catatan" pada formulir pesan.',
       'Kami akan melakukan yang terbaik untuk membantu, namun harap diperhatikan bahwa dapur kami menggunakan bahan-bahan umum termasuk kacang dan udang.',
@@ -317,8 +317,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f4',
-    questionId: 'Area pengiriman mana saja yang dilayani?',
-    questionEn: 'Which delivery areas do you serve?',
+    questionId: 'Area pengiriman mana saja di Jakarta yang dilayani oleh Dapur Pusaka Nusantara?',
+    questionEn: 'Which delivery areas in Jakarta does Dapur Pusaka Nusantara serve?',
     answerIdLines: [
       'Kami melayani area Kemang, Fatmawati, Cilandak, Pondok Indah, dan sekitarnya.',
       'Untuk area di luar tersebut, silakan tanyakan ketersediaan.',
@@ -332,8 +332,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f5',
-    questionId: 'Berapa lama waktu persiapan pesanan?',
-    questionEn: 'How long is the preparation time?',
+    questionId: 'Berapa lama rata-rata waktu persiapan pesanan di Dapur Pusaka Nusantara?',
+    questionEn: 'What is the average preparation time for an order at Dapur Pusaka Nusantara?',
     answerIdLines: [
       'Untuk dine-in dan pickup, umumnya 15–25 menit.',
       'Untuk delivery, harap tambahkan waktu estimasi pengiriman dari lokasi Anda.',
@@ -394,8 +394,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f9',
-    questionId: 'Apakah makanan di sini halal?',
-    questionEn: 'Is the food halal-friendly?',
+    questionId: 'Apakah seluruh makanan di Dapur Pusaka Nusantara dijamin halal?',
+    questionEn: 'Is all the food at Dapur Pusaka Nusantara guaranteed to be halal-friendly?',
     answerIdLines: [
       'Ya, kami berkomitmen untuk menyajikan masakan yang halal-friendly.',
       'Seluruh bahan baku kami dipilih dengan ketat.',
@@ -409,8 +409,8 @@ export const faqItems: FaqItem[] = [
   },
   {
     id: 'f10',
-    questionId: 'Bisa meminta penyesuaian menu untuk anak-anak?',
-    questionEn: 'Can I request kid-friendly customizations?',
+    questionId: 'Apakah orang tua bisa meminta penyesuaian menu untuk anak-anak?',
+    questionEn: 'Can parents request kid-friendly menu customizations?',
     answerIdLines: [
       'Tentu! Kami bisa menyesuaikan porsi dan mengurangi atau menghilangkan sambal untuk menu anak.',
       'Cukup sebutkan di kolom catatan saat memesan.',
