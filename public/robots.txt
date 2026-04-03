@@ -1,0 +1,24 @@
+# Dapur Pusaka Nusantara - Robots Configuration
+# https://dapurpusakanusantara.com
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+# Explicitly welcoming Generative AI Search Engine Crawlers (GEO/AEO)
+# This ensures LLMs find our FAQ and structured entities.
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: searchgui
+Allow: /
+
+# Mapping Sitemap
+Sitemap: https://dapurpusakanusantara.com/sitemap.xml
