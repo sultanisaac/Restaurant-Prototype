@@ -85,7 +85,7 @@ const id: Translations = {
 
   hero_headline: 'Cita Rasa Nusantara, Langsung ke Hati',
   hero_subheadline:
-    'Masakan rumahan Indonesia—hangat, kaya rempah, bikin kangen. Resep turun-temurun dari Ibu Ratna Kartasari.',
+    'Masakan rumahan Indonesia, hangat, kaya rempah, bikin kangen. Resep turun-temurun dari Ibu Ratna Kartasari.',
   hero_trust1: 'Resep Turun-Temurun',
   hero_trust2: 'Halal-Friendly',
   hero_trust3: 'Buka 10:00–22:00 WIB',
@@ -142,17 +142,17 @@ const id: Translations = {
 
   final_title: 'Siap Menikmati Masakan Nusantara?',
   final_subtitle:
-    'Pesan sekarang via WhatsApp atau reservasi meja Anda. Sambal segar dibuat setiap hari—jangan sampai kehabisan!',
+    'Pesan sekarang via WhatsApp atau reservasi meja Anda. Sambal segar dibuat setiap hari, jangan sampai kehabisan!',
   final_cta_order: 'Pesan Sekarang via WhatsApp',
   final_cta_reserve: 'Reservasi Meja',
 
-  footer_tagline: 'Masakan rumahan Indonesia—hangat, kaya rempah, bikin kangen.',
+  footer_tagline: 'Masakan rumahan Indonesia, hangat, kaya rempah, bikin kangen.',
   footer_disclaimer:
     'Website ini adalah PROTOTYPE untuk demo. Bukan situs resmi. Harga, menu, lokasi, & kontak hanya contoh.',
   footer_hours: 'Senin–Minggu, 10:00–22:00 WIB',
   footer_address: 'Jl. Kemang Raya No. 10, Jakarta Selatan',
   footer_links_title: 'Tautan Cepat',
-  footer_proto_note: 'Prototype / Demo — Bukan situs resmi.',
+  footer_proto_note: 'Prototype / Demo | Bukan situs resmi.',
   footer_copyright: '© 2024 Dapur Pusaka Nusantara. Prototype untuk tujuan demo.',
 };
 
@@ -170,7 +170,7 @@ const en: Translations = {
 
   hero_headline: 'The Taste of Nusantara, Straight from the Heart',
   hero_subheadline:
-    'Indonesian comfort food—warm, spice-rich, and nostalgic. Heritage family recipes from Ibu Ratna Kartasari.',
+    'Indonesian comfort food, warm, spice-rich, and nostalgic. Heritage family recipes from Ibu Ratna Kartasari.',
   hero_trust1: 'Heritage Family Recipes',
   hero_trust2: 'Halal-Friendly',
   hero_trust3: 'Open 10:00 AM–10:00 PM',
@@ -200,7 +200,7 @@ const en: Translations = {
 
   family_title: 'Family Sets',
   family_subtitle:
-    'Save more with our special bundles—perfect for sharing meals with family or friends.',
+    'Save more with our special bundles, perfect for sharing meals with family or friends.',
   family_cta: 'Order Set via WhatsApp',
 
   social_title: 'What They Say',
@@ -227,17 +227,17 @@ const en: Translations = {
 
   final_title: 'Ready to Enjoy Indonesian Comfort Food?',
   final_subtitle:
-    'Order now via WhatsApp or reserve your table. Fresh sambal made daily—order before it runs out!',
+    'Order now via WhatsApp or reserve your table. Fresh sambal made daily, order before it runs out!',
   final_cta_order: 'Order Now via WhatsApp',
   final_cta_reserve: 'Reserve a Table',
 
-  footer_tagline: 'Indonesian comfort food—warm, spice-rich, and nostalgic.',
+  footer_tagline: 'Indonesian comfort food, warm, spice-rich, and nostalgic.',
   footer_disclaimer:
     'This website is a PROTOTYPE for demo purposes. Not an official site. Prices, menu, location & contacts are placeholders.',
   footer_hours: 'Mon–Sun, 10:00 AM – 10:00 PM WIB',
   footer_address: 'Jl. Kemang Raya No. 10, South Jakarta',
   footer_links_title: 'Quick Links',
-  footer_proto_note: 'Prototype / Demo — Not an official site.',
+  footer_proto_note: 'Prototype / Demo | Not an official site.',
   footer_copyright: '© 2024 Dapur Pusaka Nusantara. Prototype for demo purposes.',
 };
 

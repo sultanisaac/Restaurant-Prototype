@@ -1,4 +1,4 @@
-# 🍲 Dapur Pusaka Nusantara — Restaurant Prototype
+# 🍲 Dapur Pusaka Nusantara | Restaurant Prototype
 
 [![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![React](https://img.shields.io/badge/react-%2320232d.svg?style=flat&logo=react&logoColor=%2361DAFB)](https://reactjs.org/)
@@ -27,12 +27,12 @@ This repository showcases how modern Single-Page Applications (SPAs) can incorpo
 
 ## 🛠️ Tech Stack
 
-*   **React 18** — Core application library.
-*   **Vite** — High-performance bundler and development server.
-*   **TypeScript** — Type-safe architecture.
-*   **Tailwind CSS** — Custom utility styling system.
-*   **React Helmet Async** — Dynamic SEO tag injector for Single Page Applications.
-*   **Lucide React** — Crisp vector icons.
+*   **React 18** - Core application library.
+*   **Vite** - High-performance bundler and development server.
+*   **TypeScript** - Type-safe architecture.
+*   **Tailwind CSS** - Custom utility styling system.
+*   **React Helmet Async** - Dynamic SEO tag injector for Single Page Applications.
+*   **Lucide React** - Crisp vector icons.
 
 ---
 
@@ -117,7 +117,7 @@ The prototype is fully configured for deployment on modern edge hosting platform
 
 ## 📜 License
 
-*Placeholder — No license currently exists.*
+*Placeholder - No license currently exists.*
 Refer to [Githubplan/PUBLIC_RELEASE_AUDIT.md](Githubplan/PUBLIC_RELEASE_AUDIT.md) for license recommendations.
 
 ---

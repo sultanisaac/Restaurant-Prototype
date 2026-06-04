@@ -8,7 +8,7 @@ export default function SEO() {
   const { lang } = useLang();
 
   // 1. Basic Metadata
-  const title = t(lang, 'hero_headline') + ' — Dapur Pusaka Nusantara';
+  const title = t(lang, 'hero_headline') + ' | Dapur Pusaka Nusantara';
   const description = t(lang, 'hero_subheadline');
   const siteUrl = 'https://dapurpusakanusantara.com'; // Hypothetical for prototype
 
