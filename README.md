@@ -85,6 +85,10 @@ npm run build
 ```bash
 Restaurant-Prototype/
 ├── .bolt/             # Bolt development editor settings
+├── Githubplan/        # Public release audit checklists & reports
+│   ├── GIT_HISTORY_AUDIT.md
+│   ├── PUBLIC_RELEASE_AUDIT.md
+│   └── PUBLIC_SAFE.md
 ├── public/            # Static assets (robots.txt, sitemap.xml)
 ├── src/               # Application source code
 │   ├── components/    # Modular UI sections (Hero, MenuSection, FAQ, Location, etc.)
@@ -114,7 +118,7 @@ The prototype is fully configured for deployment on modern edge hosting platform
 ## 📜 License
 
 *Placeholder — No license currently exists.*
-Refer to the **PUBLIC_RELEASE_AUDIT.md** for license recommendations.
+Refer to [Githubplan/PUBLIC_RELEASE_AUDIT.md](Githubplan/PUBLIC_RELEASE_AUDIT.md) for license recommendations.
 
 ---
 
