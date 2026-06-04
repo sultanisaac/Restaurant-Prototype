@@ -19,7 +19,7 @@ export const heritageStories: HeritageStory[] = [
       'The cooking process, which takes many hours, teaches us about patience, persistence, and wisdom.',
       'The beef blending with rich spices symbolizes the harmony within Indonesia\'s diverse society.',
     ],
-    imageUrl: 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1620700668269-d3ad2a88f27e?auto=format&fit=crop&q=80&w=800',
     lastUpdated: LAST_UPDATED,
   },
   {
@@ -38,7 +38,7 @@ export const heritageStories: HeritageStory[] = [
       'Its deep black color might be surprising, but the warmth of the beef broth provides unmatched comfort.',
       'Every bowl of Rawon at Dapur Pusaka Nusantara follows a secret family recipe passed down through generations.',
     ],
-    imageUrl: 'https://images.pexels.com/photos/2092916/pexels-photo-2092916.jpeg?auto=compress&cs=tinysrgb&w=800',
+    imageUrl: 'https://images.unsplash.com/photo-1677921739245-4efaa1914ef3?auto=format&fit=crop&q=80&w=800',
     lastUpdated: LAST_UPDATED,
   },
 ];

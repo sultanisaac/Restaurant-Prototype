@@ -60,18 +60,56 @@ export default {
         sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-up': 'fadeUp 0.5s ease-out forwards',
-        'fade-in': 'fadeIn 0.4s ease-out forwards',
+        'fade-up':    'fadeUp 0.6s ease-out forwards',
+        'fade-in':    'fadeIn 0.5s ease-out forwards',
+        'slide-up':   'slideUp 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
+        'scale-in':   'scaleIn 0.4s cubic-bezier(0.16,1,0.3,1) forwards',
+        'shimmer':    'shimmer 3s ease-in-out infinite',
+        'bounce-slow':'bounceSlow 2.4s ease-in-out infinite',
+        'pulse-gold': 'pulseGold 2s ease-in-out infinite',
       },
       keyframes: {
         fadeUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '0%':   { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         fadeIn: {
-          '0%': { opacity: '0' },
+          '0%':   { opacity: '0' },
           '100%': { opacity: '1' },
         },
+        slideUp: {
+          '0%':   { opacity: '0', transform: 'translateY(32px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          '0%':   { opacity: '0', transform: 'scale(0.92)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        shimmer: {
+          '0%':   { left: '-100%' },
+          '60%':  { left: '150%' },
+          '100%': { left: '150%' },
+        },
+        bounceSlow: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%':      { transform: 'translateY(8px)' },
+        },
+        pulseGold: {
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(212,160,23,0.3)' },
+          '50%':      { boxShadow: '0 0 0 12px rgba(212,160,23,0)' },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      boxShadow: {
+        'glow-chili': '0 0 24px rgba(192,57,43,0.25)',
+        'glow-gold':  '0 0 24px rgba(212,160,23,0.25)',
+        'premium':    '0 4px 32px rgba(44,26,16,0.12)',
+        'card':       '0 2px 16px rgba(44,26,16,0.08)',
+      },
+      transitionTimingFunction: {
+        'spring': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
     },
   },

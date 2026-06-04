@@ -3,8 +3,15 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --header-height: 4rem;
+    --section-gap: clamp(4rem, 8vw, 7rem);
+    --radius-card: 1.25rem;
+  }
+
   html {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
 
   body {
@@ -16,10 +23,132 @@
   h1, h2, h3 {
     @apply font-serif;
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-cream-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bark-400 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-chili-600;
+  }
+
+  /* Focus rings */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-chili-500 rounded-sm;
+  }
+
+  /* Selection color */
+  ::selection {
+    @apply bg-chili-100 text-chili-900;
+  }
+}
+
+@layer components {
+  /* Premium button base */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-chili-600 hover:bg-chili-700 active:bg-chili-800
+           text-white font-bold text-sm px-6 py-3 rounded-full transition-all duration-200
+           shadow-md shadow-chili-900/20 hover:shadow-lg hover:shadow-chili-900/30 hover:-translate-y-px
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chili-400;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-sm
+           px-6 py-3 rounded-full transition-all duration-200 backdrop-blur-sm;
+  }
+
+  /* Section label badge */
+  .section-badge {
+    @apply inline-flex items-center gap-1.5 text-xs font-bold text-chili-600 uppercase tracking-widest mb-3;
+  }
+
+  /* Decorative gold divider */
+  .gold-divider {
+    @apply w-12 h-0.5 bg-gradient-to-r from-gold-400 to-gold-600 rounded-full mb-6;
+  }
+
+  /* Premium card */
+  .card-premium {
+    @apply bg-white rounded-2xl border border-cream-200 hover:border-chili-200
+           hover:shadow-lg hover:shadow-bark-900/5 transition-all duration-300;
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Scroll reveal animation utilities */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+
+  /* Section texture overlay */
+  .texture-grain::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Safe-area padding for iOS */
+  .safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  /* Shimmer animation for featured elements */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.08) 50%,
+      transparent 100%
+    );
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  /* Gold accent line for section headings */
+  .heading-accent::after {
+    content: '';
+    display: block;
+    width: 3rem;
+    height: 2px;
+    background: linear-gradient(90deg, #d4a017, #956909);
+    border-radius: 9999px;
+    margin-top: 0.75rem;
   }
 }
