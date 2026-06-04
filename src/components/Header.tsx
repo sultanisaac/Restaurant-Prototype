@@ -47,7 +47,7 @@ export default function Header() {
           <a
             href="#top"
             className="flex flex-col leading-none shrink-0 group"
-            aria-label="Dapur Pusaka Nusantara — Home"
+            aria-label="Dapur Pusaka Nusantara | Home"
           >
             <span className={`font-serif text-lg font-bold leading-tight transition-colors duration-300 ${
               scrolled ? 'text-bark-950' : 'text-cream-50'

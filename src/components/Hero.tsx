@@ -17,7 +17,7 @@ export default function Hero() {
       id="top"
       className="relative min-h-screen flex flex-col overflow-hidden"
     >
-      {/* Hero background image — higher opacity for real visual impact */}
+      {/* Hero background image, higher opacity for real visual impact */}
       <div
         className="absolute inset-0"
         style={{
