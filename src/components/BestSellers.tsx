@@ -1,15 +1,14 @@
 import { MessageCircle, TrendingUp, Sparkles } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
+import { useMenu } from '../contexts/MenuContext';
 import { t } from '../data/translations';
-import { menuItems } from '../data/menu';
 import { getOrderUrl } from '../utils/whatsapp';
 import MenuCard from './ui/MenuCard';
 
-const BEST_SELLER_IDS = ['rendang', 'ayampenyet', 'sate', 'nasigoreng', 'soto', 'gadogado'];
-
 export default function BestSellers() {
   const { lang } = useLang();
-  const items = menuItems.filter((item) => BEST_SELLER_IDS.includes(item.id));
+  const { menuItems } = useMenu();
+  const items = menuItems.filter((item) => item.tabs.includes('bestseller')).slice(0, 6);
 
   return (
     <section id="bestsellers" className="py-20 sm:py-24 px-4 sm:px-6 bg-cream-50 texture-grain relative overflow-hidden border-b border-cream-200">

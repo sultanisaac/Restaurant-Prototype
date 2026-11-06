@@ -30,7 +30,7 @@ const MENU_IMAGES: Record<string, string> = {
 export default function MenuCard({ item, lang }: MenuCardProps) {
   const name = lang === 'id' ? item.nameId : item.nameEn;
   const desc = lang === 'id' ? item.descId : item.descEn;
-  const imageUrl = MENU_IMAGES[item.id] || 'https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=600&q=80';
+  const imageUrl = item.image || MENU_IMAGES[item.id] || 'https://images.unsplash.com/photo-1569058242252-623df46b5025?auto=format&fit=crop&w=600&q=80';
 
   const spiceLabels: Record<0 | 1 | 2 | 3, string> = {
     0: t(lang, 'menu_spice_none'),

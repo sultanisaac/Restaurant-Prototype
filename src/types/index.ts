@@ -12,6 +12,7 @@ export interface MenuItem {
   spice: 0 | 1 | 2 | 3;
   allergens: ('peanut' | 'seafood')[];
   tabs: MenuTab[];
+  image?: string;
 }
 
 export interface AddOn {

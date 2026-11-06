@@ -3,15 +3,22 @@ import { MessageCircle, Menu as MenuIcon, X } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
 import { getOrderUrl, getReservationUrl } from '../utils/whatsapp';
+import { navigateTo } from '../utils/navigation';
+import PrototypeBanner from './PrototypeBanner';
 
-export default function Header() {
-  const { lang, toggleLang } = useLang();
+interface HeaderProps {
+  currentRoute?: 'home' | 'menu' | 'faq' | 'contact';
+}
+
+export default function Header({ currentRoute = 'home' }: HeaderProps) {
+  const { lang } = useLang();
+  const [showBanner, setShowBanner] = useState(true);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 40);
+    const handler = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handler, { passive: true });
     return () => window.removeEventListener('scroll', handler);
   }, []);
@@ -23,84 +30,87 @@ export default function Header() {
   }, [mobileOpen]);
 
   const navLinks = [
-    { label: t(lang, 'nav_menu'), href: '#menu' },
-    { label: t(lang, 'nav_family'), href: '#family-sets' },
-    { label: t(lang, 'nav_location'), href: '#location' },
-    { label: t(lang, 'nav_faq'), href: '#faq' },
+    { label: 'Home', href: '/', key: 'home' },
+    { label: 'Menu', href: '/menu', key: 'menu' },
+    { label: 'Contact', href: '/contact', key: 'contact' },
+    { label: 'FAQ', href: '/faq', key: 'faq' },
   ];
 
   const closeMobile = () => setMobileOpen(false);
+
+  const handleNavClick = (link: typeof navLinks[number], e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMobile();
+    navigateTo(link.href, link.sectionId);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    closeMobile();
+    navigateTo('/');
+  };
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrolled
-            ? 'bg-cream-50/96 backdrop-blur-md shadow-sm border-b border-cream-200/80'
+          scrolled || currentRoute !== 'home'
+            ? 'bg-bark-950/70 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/15'
             : 'bg-transparent'
         }`}
       >
-        {/* Spacer for the PrototypeBanner above */}
+        {showBanner && <PrototypeBanner onClose={() => setShowBanner(false)} />}
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
 
           {/* Logo */}
           <a
-            href="#top"
-            className="flex flex-col leading-none shrink-0 group"
+            href="/"
+            onClick={handleLogoClick}
+            className="flex flex-col leading-none shrink-0 group cursor-pointer"
             aria-label="Dapur Pusaka Nusantara | Home"
           >
-            <span className={`font-serif text-lg font-bold leading-tight transition-colors duration-300 ${
-              scrolled ? 'text-bark-950' : 'text-cream-50'
-            }`}>
+            <span className="font-serif text-lg font-bold leading-tight text-white transition-colors duration-300">
               Dapur Pusaka
             </span>
-            <span className={`font-serif text-[10px] font-bold tracking-[0.2em] uppercase transition-colors duration-300 ${
-              scrolled ? 'text-chili-600' : 'text-gold-300'
-            }`}>
+            <span className="font-serif text-[10px] font-bold tracking-[0.2em] uppercase text-gold-300 transition-colors duration-300">
               Nusantara
             </span>
           </a>
 
           {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 ${
-                  scrolled
-                    ? 'text-bark-700 hover:text-chili-600 hover:bg-chili-50'
-                    : 'text-cream-100/90 hover:text-white hover:bg-white/10'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                (link.key === 'home' && currentRoute === 'home') ||
+                (link.key === 'menu' && currentRoute === 'menu') ||
+                (link.key === 'faq' && currentRoute === 'faq') ||
+                (link.key === 'contact' && currentRoute === 'contact');
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(link, e)}
+                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? 'text-gold-300 bg-white/10 font-semibold'
+                      : 'text-cream-100/90 hover:text-white hover:bg-white/10'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Desktop CTAs */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={toggleLang}
-              aria-label={lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
-              className={`hidden sm:flex items-center text-[11px] font-bold px-2.5 py-1.5 rounded-full border transition-all duration-200 ${
-                scrolled
-                  ? 'border-bark-300 text-bark-700 hover:border-chili-500 hover:text-chili-600'
-                  : 'border-white/30 text-cream-100 hover:border-white/60 hover:text-white'
-              }`}
-            >
-              {lang === 'id' ? 'EN' : 'ID'}
-            </button>
-
             <a
               href={getReservationUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hidden sm:flex text-sm font-semibold px-3 py-1.5 rounded-lg transition-all duration-200 ${
-                scrolled
-                  ? 'text-bark-700 hover:text-chili-600 hover:bg-chili-50'
-                  : 'text-cream-100 hover:text-white hover:bg-white/10'
-              }`}
+              className="hidden sm:flex text-sm font-semibold px-3 py-1.5 rounded-lg text-cream-100 hover:text-white hover:bg-white/10 transition-all duration-200"
             >
               {t(lang, 'reserve_btn')}
             </a>
@@ -118,11 +128,7 @@ export default function Header() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen((o) => !o)}
-              className={`md:hidden p-2 rounded-lg transition-all duration-200 ${
-                scrolled
-                  ? 'text-bark-800 hover:text-chili-600 hover:bg-chili-50'
-                  : 'text-cream-50 hover:text-white hover:bg-white/10'
-              }`}
+              className="md:hidden p-2 rounded-lg text-cream-50 hover:text-white hover:bg-white/10 transition-all duration-200"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
@@ -137,7 +143,7 @@ export default function Header() {
       <div
         id="mobile-menu"
         ref={menuRef}
-        className={`fixed inset-0 z-30 md:hidden transition-all duration-300 ${
+        className={`fixed inset-0 z-50 md:hidden transition-all duration-300 ${
           mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden={!mobileOpen}
@@ -171,16 +177,28 @@ export default function Header() {
 
           {/* Nav links */}
           <nav className="px-3 py-4 space-y-1" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={closeMobile}
-                className="flex items-center px-4 py-3 text-sm font-semibold text-bark-800 hover:text-chili-600 hover:bg-chili-50 rounded-xl transition-all duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive =
+                (link.key === 'home' && currentRoute === 'home') ||
+                (link.key === 'menu' && currentRoute === 'menu') ||
+                (link.key === 'faq' && currentRoute === 'faq') ||
+                (link.key === 'contact' && currentRoute === 'contact');
+
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={(e) => handleNavClick(link, e)}
+                  className={`flex items-center px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
+                    isActive
+                      ? 'text-chili-600 bg-chili-50 font-bold'
+                      : 'text-bark-800 hover:text-chili-600 hover:bg-chili-50'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Mobile CTAs */}
@@ -204,12 +222,6 @@ export default function Header() {
             >
               {t(lang, 'reserve_btn')}
             </a>
-            <button
-              onClick={() => { toggleLang(); closeMobile(); }}
-              className="w-full text-xs font-semibold px-4 py-2 rounded-full border border-bark-300 text-bark-700 hover:border-chili-500 hover:text-chili-600 transition-colors"
-            >
-              {lang === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia'}
-            </button>
           </div>
         </div>
       </div>

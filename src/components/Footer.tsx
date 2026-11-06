@@ -2,17 +2,22 @@ import { MessageCircle, Instagram, Phone, MapPin, Clock, Sparkles } from 'lucide
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
 import { getOrderUrl, getReservationUrl, MAPS_URL, IG_URL, PHONE_RAW } from '../utils/whatsapp';
+import { navigateTo } from '../utils/navigation';
 
 export default function Footer() {
   const { lang } = useLang();
 
   const navLinks = [
-    { label: t(lang, 'nav_menu'), href: '#menu' },
-    { label: t(lang, 'nav_family'), href: '#family-sets' },
-    { label: lang === 'id' ? 'Testimoni' : 'Reviews', href: '#testimonials' },
-    { label: t(lang, 'nav_location'), href: '#location' },
-    { label: t(lang, 'nav_faq'), href: '#faq' },
+    { label: 'Home', href: '/' },
+    { label: 'Menu', href: '/menu' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'FAQ', href: '/faq' },
   ];
+
+  const handleLinkClick = (link: { href: string; sectionId?: string }, e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    navigateTo(link.href, link.sectionId);
+  };
 
   return (
     <footer className="bg-bark-950 text-cream-200 border-t border-bark-900 texture-grain relative overflow-hidden">
@@ -69,7 +74,8 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-sm text-bark-400 hover:text-gold-300 transition-colors duration-200"
+                    onClick={(e) => handleLinkClick(link, e)}
+                    className="text-sm text-bark-400 hover:text-gold-300 transition-colors duration-200 cursor-pointer"
                   >
                     {link.label}
                   </a>
