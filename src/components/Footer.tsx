@@ -8,7 +8,7 @@ export default function Footer() {
 
   const navLinks = [
     { label: 'Home', href: '#/' },
-    { label: t(lang, 'nav_menu'), href: '#/menu', sectionId: 'menu' },
+    { label: t(lang, 'nav_menu'), href: '#/menu' },
     { label: t(lang, 'nav_family'), href: '#/family-sets', sectionId: 'family-sets' },
     { label: lang === 'id' ? 'Testimoni' : 'Reviews', href: '#/testimonials', sectionId: 'testimonials' },
     { label: 'Contact', href: '#/contact' },
@@ -17,7 +17,7 @@ export default function Footer() {
 
   const handleLinkClick = (link: { href: string; sectionId?: string }, e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (link.href === '#/faq' || link.href === '#/contact') {
+    if (link.href === '#/faq' || link.href === '#/contact' || link.href === '#/menu') {
       window.location.hash = link.href;
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } else if (link.sectionId) {

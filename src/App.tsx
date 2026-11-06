@@ -4,7 +4,6 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import BestSellers from './components/BestSellers';
-import MenuSection from './components/MenuSection';
 import CulinaryHeritage from './components/CulinaryHeritage';
 import FamilySets from './components/FamilySets';
 import SocialProof from './components/SocialProof';
@@ -13,13 +12,15 @@ import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import StickyBottomBar from './components/StickyBottomBar';
 import SEO from './components/SEO';
+import MenuPage from './pages/MenuPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
 
-type Route = 'home' | 'faq' | 'contact';
+type Route = 'home' | 'menu' | 'faq' | 'contact';
 
 function getRouteFromHash(): Route {
   const hash = window.location.hash.toLowerCase();
+  if (hash.startsWith('#/menu') || hash === '#menu') return 'menu';
   if (hash.startsWith('#/faq') || hash === '#faq') return 'faq';
   if (hash.startsWith('#/contact') || hash === '#contact') return 'contact';
   return 'home';
@@ -46,13 +47,13 @@ export default function App() {
           <Header currentRoute={route} />
           
           <main>
+            {route === 'menu' && <MenuPage />}
             {route === 'faq' && <FAQPage />}
             {route === 'contact' && <ContactPage />}
             {route === 'home' && (
               <>
                 <Hero />
                 <BestSellers />
-                <MenuSection />
                 <CulinaryHeritage />
                 <FamilySets />
                 <SocialProof />

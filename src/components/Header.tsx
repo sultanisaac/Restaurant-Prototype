@@ -6,7 +6,7 @@ import { getOrderUrl, getReservationUrl } from '../utils/whatsapp';
 import PrototypeBanner from './PrototypeBanner';
 
 interface HeaderProps {
-  currentRoute?: 'home' | 'faq' | 'contact';
+  currentRoute?: 'home' | 'menu' | 'faq' | 'contact';
 }
 
 export default function Header({ currentRoute = 'home' }: HeaderProps) {
@@ -30,6 +30,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
 
   const navLinks = [
     { label: 'Home', href: '#/', key: 'home' },
+    { label: 'Menu', href: '#/menu', key: 'menu' },
     { label: t(lang, 'nav_family'), href: '#/family-sets', key: 'family' },
     { label: 'Contact', href: '#/contact', key: 'contact' },
     { label: 'FAQ', href: '#/faq', key: 'faq' },
@@ -47,9 +48,12 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
     } else if (href === '#/contact') {
       window.location.hash = '#/contact';
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (href === '#/menu' || href === '#/family-sets') {
-      const sectionId = href === '#/menu' ? 'menu' : 'family-sets';
-      if (window.location.hash.startsWith('#/faq') || window.location.hash.startsWith('#/contact')) {
+    } else if (href === '#/menu') {
+      window.location.hash = '#/menu';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (href === '#/family-sets') {
+      const sectionId = 'family-sets';
+      if (window.location.hash.startsWith('#/faq') || window.location.hash.startsWith('#/contact') || window.location.hash.startsWith('#/menu')) {
         window.location.hash = '#/';
         setTimeout(() => {
           document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -103,6 +107,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
             {navLinks.map((link) => {
               const isActive =
                 (link.key === 'home' && currentRoute === 'home') ||
+                (link.key === 'menu' && currentRoute === 'menu') ||
                 (link.key === 'faq' && currentRoute === 'faq') ||
                 (link.key === 'contact' && currentRoute === 'contact');
 
@@ -199,6 +204,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
             {navLinks.map((link) => {
               const isActive =
                 (link.key === 'home' && currentRoute === 'home') ||
+                (link.key === 'menu' && currentRoute === 'menu') ||
                 (link.key === 'faq' && currentRoute === 'faq') ||
                 (link.key === 'contact' && currentRoute === 'contact');
 
