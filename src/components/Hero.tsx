@@ -89,7 +89,11 @@ export default function Hero() {
         {/* Eyebrow label */}
         <div className="mb-5 animate-fade-in" style={{ animationDelay: '0.1s', animationFillMode: 'both' }}>
           <span className="inline-flex items-center gap-2 bg-gold-400/15 border border-gold-400/30 text-gold-300 text-[11px] font-bold px-4 py-1.5 rounded-full uppercase tracking-widest">
-            <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
+            <img
+              src="/Logo/Favicon.png"
+              alt="Dapur Pusaka Nusantara"
+              className="w-4 h-4 rounded-full object-cover border border-gold-400/60"
+            />
             {lang === 'id' ? 'Masakan Tradisional Indonesia' : 'Traditional Indonesian Cuisine'}
           </span>
         </div>

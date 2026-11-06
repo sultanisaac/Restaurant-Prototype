@@ -67,15 +67,22 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
           <a
             href="/"
             onClick={handleLogoClick}
-            className="flex flex-col leading-none shrink-0 group cursor-pointer"
+            className="flex items-center gap-3 shrink-0 group cursor-pointer"
             aria-label="Dapur Pusaka Nusantara | Home"
           >
-            <span className="font-serif text-lg font-bold leading-tight text-white transition-colors duration-300">
-              Dapur Pusaka
-            </span>
-            <span className="font-serif text-[10px] font-bold tracking-[0.2em] uppercase text-gold-300 transition-colors duration-300">
-              Nusantara
-            </span>
+            <img
+              src="/Logo/Logo.jpg"
+              alt="Dapur Pusaka Nusantara Logo"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border border-gold-400/40 shadow-md group-hover:scale-105 transition-transform duration-300"
+            />
+            <div className="flex flex-col leading-none">
+              <span className="font-serif text-lg font-bold leading-tight text-white transition-colors duration-300">
+                Dapur Pusaka
+              </span>
+              <span className="font-serif text-[10px] font-bold tracking-[0.2em] uppercase text-gold-300 transition-colors duration-300">
+                Nusantara
+              </span>
+            </div>
           </a>
 
           {/* Desktop nav */}
@@ -162,9 +169,16 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
         >
           {/* Drawer header */}
           <div className="flex items-center justify-between px-5 py-4 border-b border-cream-200">
-            <div className="flex flex-col leading-none">
-              <span className="font-serif text-base font-bold text-bark-950">Dapur Pusaka</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-chili-600">Nusantara</span>
+            <div className="flex items-center gap-2.5">
+              <img
+                src="/Logo/Logo.jpg"
+                alt="Dapur Pusaka Nusantara Logo"
+                className="w-9 h-9 rounded-full object-cover border border-chili-200 shadow-sm"
+              />
+              <div className="flex flex-col leading-none">
+                <span className="font-serif text-base font-bold text-bark-950">Dapur Pusaka</span>
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-chili-600">Nusantara</span>
+              </div>
             </div>
             <button
               onClick={closeMobile}

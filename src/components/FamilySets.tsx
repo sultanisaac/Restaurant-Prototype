@@ -95,10 +95,10 @@ export default function FamilySets() {
                   href={getFamilySetOrderUrl(lang, name)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`flex items-center justify-center gap-2.5 font-bold text-sm py-3.5 rounded-2xl transition-all duration-200 shadow-sm ${
+                  className={`flex items-center justify-center gap-2.5 font-bold text-sm py-3.5 px-6 rounded-full transition-all duration-200 shadow-md ${
                     isPopular
-                      ? 'bg-white text-chili-850 hover:bg-cream-50 shadow-md shadow-chili-950/20 active:translate-y-px'
-                      : 'bg-chili-600 hover:bg-chili-500 active:bg-chili-700 text-white active:translate-y-px'
+                      ? 'bg-gradient-to-r from-gold-400 to-gold-500 hover:from-gold-300 hover:to-gold-400 text-bark-950 shadow-gold-500/25 hover:shadow-lg hover:-translate-y-px active:translate-y-0'
+                      : 'bg-chili-600 hover:bg-chili-500 active:bg-chili-700 text-white shadow-chili-900/30 hover:shadow-lg hover:-translate-y-px active:translate-y-0'
                   }`}
                 >
                   <MessageCircle size={16} />
