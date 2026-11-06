@@ -17,7 +17,7 @@ export default function SEO() {
     '@context': 'https://schema.org',
     '@type': 'Restaurant',
     'name': 'Dapur Pusaka Nusantara',
-    'image': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    'image': `${siteUrl}/Logo/Logo.jpg`,
     '@id': siteUrl,
     'url': siteUrl,
     'telephone': '+622155550000',
@@ -100,7 +100,7 @@ export default function SEO() {
         'publisher': {
           '@type': 'Organization',
           'name': 'Dapur Pusaka Nusantara',
-          'logo': 'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg'
+          'logo': `${siteUrl}/Logo/Logo.jpg`
         }
       }
     }))

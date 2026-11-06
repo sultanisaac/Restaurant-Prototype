@@ -149,8 +149,12 @@ export default function AdminPage() {
         <div className="w-full max-w-md bg-bark-900/90 border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl relative z-10 backdrop-blur-md">
           {/* Brand Logo Header */}
           <div className="text-center mb-8">
-            <div className="w-14 h-14 rounded-2xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center mx-auto mb-4 text-gold-400">
-              <Lock size={26} />
+            <div className="w-20 h-20 rounded-full border-2 border-gold-400/40 p-1 bg-bark-950/80 shadow-xl shadow-black/40 mx-auto mb-4 flex items-center justify-center">
+              <img
+                src="/Logo/Logo.jpg"
+                alt="Dapur Pusaka Nusantara Logo"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
             <span className="font-serif text-2xl font-bold block text-white">Dapur Pusaka</span>
             <span className="text-[11px] font-bold tracking-[0.25em] uppercase text-gold-300 block mb-3">
@@ -227,18 +231,27 @@ export default function AdminPage() {
         }`}
       >
         {/* Sidebar Header */}
-        <div className="h-20 px-5 flex items-center justify-between border-b border-white/10">
+        <div className="h-20 px-4 sm:px-5 flex items-center justify-between border-b border-white/10">
           {sidebarOpen ? (
-            <div className="flex flex-col leading-none">
-              <span className="font-serif text-lg font-bold text-white">Dapur Pusaka</span>
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold-300">
-                Admin Portal
-              </span>
+            <div className="flex items-center gap-3">
+              <img
+                src="/Logo/Logo.jpg"
+                alt="Logo"
+                className="w-9 h-9 rounded-full object-cover border border-gold-400/35 shrink-0"
+              />
+              <div className="flex flex-col leading-none">
+                <span className="font-serif text-base font-bold text-white">Dapur Pusaka</span>
+                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold-300">
+                  Admin Portal
+                </span>
+              </div>
             </div>
           ) : (
-            <div className="w-9 h-9 rounded-xl bg-gold-400/10 border border-gold-400/20 flex items-center justify-center text-gold-400 mx-auto font-serif font-bold text-sm">
-              DP
-            </div>
+            <img
+              src="/Logo/Favicon.png"
+              alt="Logo Favicon"
+              className="w-9 h-9 rounded-full object-cover border border-gold-400/35 mx-auto"
+            />
           )}
 
           <button

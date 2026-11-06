@@ -30,13 +30,20 @@ export default function Footer() {
           
           {/* Column 1: Info and Brand */}
           <div className="sm:col-span-2 lg:col-span-2 space-y-4">
-            <div>
-              <span className="font-serif text-2xl font-bold text-cream-50 block leading-tight">
-                Dapur Pusaka Nusantara
-              </span>
-              <span className="text-[10px] text-gold-400 font-bold tracking-widest uppercase block mt-1">
-                {lang === 'id' ? 'Masakan Tradisional Indonesia' : 'Traditional Indonesian Food'}
-              </span>
+            <div className="flex items-center gap-4">
+              <img
+                src="/Logo/Logo.jpg"
+                alt="Dapur Pusaka Nusantara Logo"
+                className="w-14 h-14 rounded-full object-cover border border-gold-400/35 shadow-lg shrink-0"
+              />
+              <div>
+                <span className="font-serif text-2xl font-bold text-cream-50 block leading-tight">
+                  Dapur Pusaka Nusantara
+                </span>
+                <span className="text-[10px] text-gold-400 font-bold tracking-widest uppercase block mt-1">
+                  {lang === 'id' ? 'Masakan Tradisional Indonesia' : 'Traditional Indonesian Food'}
+                </span>
+              </div>
             </div>
             <p className="text-sm text-bark-400 leading-relaxed max-w-sm">
               {t(lang, 'footer_tagline')}
