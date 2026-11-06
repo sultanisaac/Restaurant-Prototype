@@ -32,7 +32,6 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
   const navLinks = [
     { label: 'Home', href: '/', key: 'home' },
     { label: 'Menu', href: '/menu', key: 'menu' },
-    { label: t(lang, 'nav_family'), href: '/#family-sets', key: 'family', sectionId: 'family-sets' },
     { label: 'Contact', href: '/contact', key: 'contact' },
     { label: 'FAQ', href: '/faq', key: 'faq' },
   ];

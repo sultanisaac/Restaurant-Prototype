@@ -9,9 +9,7 @@ export default function Footer() {
 
   const navLinks = [
     { label: 'Home', href: '/' },
-    { label: t(lang, 'nav_menu'), href: '/menu' },
-    { label: t(lang, 'nav_family'), href: '/#family-sets', sectionId: 'family-sets' },
-    { label: lang === 'id' ? 'Testimoni' : 'Reviews', href: '/#testimonials', sectionId: 'testimonials' },
+    { label: 'Menu', href: '/menu' },
     { label: 'Contact', href: '/contact' },
     { label: 'FAQ', href: '/faq' },
   ];

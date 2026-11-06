@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { MessageCircle, CalendarDays, CheckCircle2, ChevronDown } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
@@ -5,6 +6,24 @@ import { getOrderUrl, getReservationUrl } from '../utils/whatsapp';
 
 export default function Hero() {
   const { lang } = useLang();
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  useEffect(() => {
+    // Check network connection quality
+    // @ts-ignore
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
+    if (conn) {
+      const isSlow = conn.saveData || ['slow-2g', '2g', '3g'].includes(conn.effectiveType);
+      if (!isSlow) {
+        setShouldPlayVideo(true);
+      }
+    } else {
+      // Default to playing video on browsers without Network Information API (e.g. desktop/fast networks)
+      setShouldPlayVideo(true);
+    }
+  }, []);
 
   const trustChips = [
     t(lang, 'hero_trust1'),
@@ -17,17 +36,33 @@ export default function Hero() {
       id="top"
       className="relative min-h-screen flex flex-col overflow-hidden"
     >
-      {/* Hero background image, higher opacity for real visual impact */}
+      {/* Base Hero background image (/hero-bg.jpg) - displayed immediately and used on slow connections */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage:
-            'url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920)',
+          backgroundImage: 'url(/hero-bg.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
           backgroundRepeat: 'no-repeat',
         }}
       />
+
+      {/* Looping silent video for high-speed connections */}
+      {shouldPlayVideo && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/hero-bg.jpg"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-opacity duration-1000"
+          style={{ opacity: videoLoaded ? 1 : 0 }}
+          onLoadedData={() => setVideoLoaded(true)}
+          onError={() => setShouldPlayVideo(false)}
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+      )}
 
       {/* Multi-layer gradient overlay for depth & legibility */}
       <div className="absolute inset-0 bg-gradient-to-br from-bark-950/90 via-bark-950/70 to-bark-800/60" />

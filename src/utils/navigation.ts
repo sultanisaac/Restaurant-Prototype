@@ -1,8 +1,12 @@
-export type Route = 'home' | 'menu' | 'faq' | 'contact';
+export type Route = 'home' | 'menu' | 'faq' | 'contact' | 'admin';
 
 export function getRouteFromPath(): Route {
   // Gracefully upgrade any legacy hash URLs to clean path URLs
   const hash = window.location.hash.toLowerCase();
+  if (hash.startsWith('#/admin') || hash === '#admin') {
+    window.history.replaceState(null, '', '/admin');
+    return 'admin';
+  }
   if (hash.startsWith('#/menu') || hash === '#menu') {
     window.history.replaceState(null, '', '/menu');
     return 'menu';
@@ -18,6 +22,7 @@ export function getRouteFromPath(): Route {
 
   // Handle pathname
   const path = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
+  if (path === '/admin' || path.endsWith('/admin')) return 'admin';
   if (path === '/menu' || path.endsWith('/menu')) return 'menu';
   if (path === '/faq' || path.endsWith('/faq')) return 'faq';
   if (path === '/contact' || path.endsWith('/contact')) return 'contact';

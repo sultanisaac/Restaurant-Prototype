@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './contexts/LanguageContext';
+import { MenuProvider } from './contexts/MenuContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import BestSellers from './components/BestSellers';
@@ -15,6 +16,7 @@ import SEO from './components/SEO';
 import MenuPage from './pages/MenuPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
+import AdminPage from './pages/AdminPage';
 import { getRouteFromPath, type Route } from './utils/navigation';
 
 export default function App() {
@@ -36,34 +38,52 @@ export default function App() {
     };
   }, []);
 
+  if (route === 'admin') {
+    return (
+      <HelmetProvider>
+        <LanguageProvider>
+          <MenuProvider>
+            <Helmet>
+              <title>Admin Portal | Dapur Pusaka Nusantara</title>
+              <meta name="robots" content="noindex, nofollow" />
+            </Helmet>
+            <AdminPage />
+          </MenuProvider>
+        </LanguageProvider>
+      </HelmetProvider>
+    );
+  }
+
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <div className="min-h-screen">
-          <SEO />
-          <Header currentRoute={route} />
-          
-          <main>
-            {route === 'menu' && <MenuPage />}
-            {route === 'faq' && <FAQPage />}
-            {route === 'contact' && <ContactPage />}
-            {route === 'home' && (
-              <>
-                <Hero />
-                <BestSellers />
-                <CulinaryHeritage />
-                <FamilySets />
-                <SocialProof />
-                <LocationHours />
-                <FinalCTA />
-              </>
-            )}
-          </main>
+        <MenuProvider>
+          <div className="min-h-screen">
+            <SEO />
+            <Header currentRoute={route} />
+            
+            <main>
+              {route === 'menu' && <MenuPage />}
+              {route === 'faq' && <FAQPage />}
+              {route === 'contact' && <ContactPage />}
+              {route === 'home' && (
+                <>
+                  <Hero />
+                  <BestSellers />
+                  <CulinaryHeritage />
+                  <FamilySets />
+                  <SocialProof />
+                  <LocationHours />
+                  <FinalCTA />
+                </>
+              )}
+            </main>
 
-          <Footer />
-          <StickyBottomBar />
-          <div className="h-16 sm:hidden" aria-hidden="true" />
-        </div>
+            <Footer />
+            <StickyBottomBar />
+            <div className="h-16 sm:hidden" aria-hidden="true" />
+          </div>
+        </MenuProvider>
       </LanguageProvider>
     </HelmetProvider>
   );

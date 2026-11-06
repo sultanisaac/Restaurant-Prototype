@@ -4,16 +4,18 @@ import LocationHours from '../components/LocationHours';
 export default function ContactPage() {
   return (
     <div className="pt-24 min-h-screen bg-cream-50">
-      {/* Page Hero */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-b from-bark-950 via-bark-900 to-bark-850 text-cream-50 text-center relative overflow-hidden">
-        {/* Ambient background glow */}
+      {/* Page Hero with Custom Background Image */}
+      <section className="py-20 sm:py-24 px-4 sm:px-6 text-cream-50 text-center relative overflow-hidden">
+        {/* Background Image Layer */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-20"
+          className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage:
-              'radial-gradient(circle at 50% 30%, rgba(192,57,43,0.3) 0%, transparent 60%)',
+            backgroundImage: 'url("/Contact%20page/First%20Section.jpg")',
           }}
         />
+        {/* Multi-layer gradient overlay for rich contrast & legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bark-950/90 via-bark-950/75 to-bark-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bark-950/60 via-transparent to-bark-950/60" />
 
         <div className="max-w-3xl mx-auto relative z-10">
           <span className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-400 uppercase tracking-widest px-3 py-1 rounded-full bg-gold-400/10 border border-gold-400/20 mb-4">

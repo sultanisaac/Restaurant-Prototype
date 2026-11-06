@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { MessageCircle, AlertCircle, Sparkles } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
+import { useMenu } from '../contexts/MenuContext';
 import { t } from '../data/translations';
-import { allMenuItems } from '../data/menu';
 import { getOrderUrl } from '../utils/whatsapp';
 import MenuCard from './ui/MenuCard';
 import type { MenuTab } from '../types';
@@ -20,9 +20,10 @@ const TABS: { key: MenuTab; labelKey: Parameters<typeof t>[1] }[] = [
 
 export default function MenuSection() {
   const { lang } = useLang();
+  const { menuItems } = useMenu();
   const [activeTab, setActiveTab] = useState<MenuTab>('bestseller');
 
-  const filteredItems = allMenuItems.filter((item) => item.tabs.includes(activeTab));
+  const filteredItems = menuItems.filter((item) => item.tabs.includes(activeTab));
 
   return (
     <section
