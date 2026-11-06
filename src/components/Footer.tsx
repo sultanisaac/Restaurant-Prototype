@@ -2,37 +2,23 @@ import { MessageCircle, Instagram, Phone, MapPin, Clock, Sparkles } from 'lucide
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
 import { getOrderUrl, getReservationUrl, MAPS_URL, IG_URL, PHONE_RAW } from '../utils/whatsapp';
+import { navigateTo } from '../utils/navigation';
 
 export default function Footer() {
   const { lang } = useLang();
 
   const navLinks = [
-    { label: 'Home', href: '#/' },
-    { label: t(lang, 'nav_menu'), href: '#/menu' },
-    { label: t(lang, 'nav_family'), href: '#/family-sets', sectionId: 'family-sets' },
-    { label: lang === 'id' ? 'Testimoni' : 'Reviews', href: '#/testimonials', sectionId: 'testimonials' },
-    { label: 'Contact', href: '#/contact' },
-    { label: 'FAQ', href: '#/faq' },
+    { label: 'Home', href: '/' },
+    { label: t(lang, 'nav_menu'), href: '/menu' },
+    { label: t(lang, 'nav_family'), href: '/#family-sets', sectionId: 'family-sets' },
+    { label: lang === 'id' ? 'Testimoni' : 'Reviews', href: '/#testimonials', sectionId: 'testimonials' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'FAQ', href: '/faq' },
   ];
 
   const handleLinkClick = (link: { href: string; sectionId?: string }, e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    if (link.href === '#/faq' || link.href === '#/contact' || link.href === '#/menu') {
-      window.location.hash = link.href;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (link.sectionId) {
-      if (window.location.hash.startsWith('#/faq') || window.location.hash.startsWith('#/contact')) {
-        window.location.hash = '#/';
-        setTimeout(() => {
-          document.getElementById(link.sectionId!)?.scrollIntoView({ behavior: 'smooth' });
-        }, 120);
-      } else {
-        document.getElementById(link.sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.location.hash = '#/';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    navigateTo(link.href, link.sectionId);
   };
 
   return (

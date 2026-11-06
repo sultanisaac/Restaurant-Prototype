@@ -3,6 +3,7 @@ import { MessageCircle, Menu as MenuIcon, X } from 'lucide-react';
 import { useLang } from '../contexts/LanguageContext';
 import { t } from '../data/translations';
 import { getOrderUrl, getReservationUrl } from '../utils/whatsapp';
+import { navigateTo } from '../utils/navigation';
 import PrototypeBanner from './PrototypeBanner';
 
 interface HeaderProps {
@@ -29,49 +30,25 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
   }, [mobileOpen]);
 
   const navLinks = [
-    { label: 'Home', href: '#/', key: 'home' },
-    { label: 'Menu', href: '#/menu', key: 'menu' },
-    { label: t(lang, 'nav_family'), href: '#/family-sets', key: 'family' },
-    { label: 'Contact', href: '#/contact', key: 'contact' },
-    { label: 'FAQ', href: '#/faq', key: 'faq' },
+    { label: 'Home', href: '/', key: 'home' },
+    { label: 'Menu', href: '/menu', key: 'menu' },
+    { label: t(lang, 'nav_family'), href: '/#family-sets', key: 'family', sectionId: 'family-sets' },
+    { label: 'Contact', href: '/contact', key: 'contact' },
+    { label: 'FAQ', href: '/faq', key: 'faq' },
   ];
 
   const closeMobile = () => setMobileOpen(false);
 
-  const handleNavClick = (href: string, e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleNavClick = (link: typeof navLinks[number], e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     closeMobile();
-
-    if (href === '#/faq') {
-      window.location.hash = '#/faq';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (href === '#/contact') {
-      window.location.hash = '#/contact';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (href === '#/menu') {
-      window.location.hash = '#/menu';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (href === '#/family-sets') {
-      const sectionId = 'family-sets';
-      if (window.location.hash.startsWith('#/faq') || window.location.hash.startsWith('#/contact') || window.location.hash.startsWith('#/menu')) {
-        window.location.hash = '#/';
-        setTimeout(() => {
-          document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-        }, 120);
-      } else {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      window.location.hash = '#/';
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    navigateTo(link.href, link.sectionId);
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     closeMobile();
-    window.location.hash = '#/';
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    navigateTo('/');
   };
 
   return (
@@ -89,7 +66,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
 
           {/* Logo */}
           <a
-            href="#/"
+            href="/"
             onClick={handleLogoClick}
             className="flex flex-col leading-none shrink-0 group cursor-pointer"
             aria-label="Dapur Pusaka Nusantara | Home"
@@ -115,7 +92,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(link.href, e)}
+                  onClick={(e) => handleNavClick(link, e)}
                   className={`text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer ${
                     isActive
                       ? 'text-gold-300 bg-white/10 font-semibold'
@@ -212,7 +189,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
                 <a
                   key={link.href}
                   href={link.href}
-                  onClick={(e) => handleNavClick(link.href, e)}
+                  onClick={(e) => handleNavClick(link, e)}
                   className={`flex items-center px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     isActive
                       ? 'text-chili-600 bg-chili-50 font-bold'

@@ -15,28 +15,25 @@ import SEO from './components/SEO';
 import MenuPage from './pages/MenuPage';
 import FAQPage from './pages/FAQPage';
 import ContactPage from './pages/ContactPage';
-
-type Route = 'home' | 'menu' | 'faq' | 'contact';
-
-function getRouteFromHash(): Route {
-  const hash = window.location.hash.toLowerCase();
-  if (hash.startsWith('#/menu') || hash === '#menu') return 'menu';
-  if (hash.startsWith('#/faq') || hash === '#faq') return 'faq';
-  if (hash.startsWith('#/contact') || hash === '#contact') return 'contact';
-  return 'home';
-}
+import { getRouteFromPath, type Route } from './utils/navigation';
 
 export default function App() {
-  const [route, setRoute] = useState<Route>(getRouteFromHash);
+  const [route, setRoute] = useState<Route>(getRouteFromPath);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const nextRoute = getRouteFromHash();
-      setRoute(nextRoute);
+    const handleLocationChange = () => {
+      setRoute(getRouteFromPath());
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('app-route-change', handleLocationChange);
+    window.addEventListener('hashchange', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('app-route-change', handleLocationChange);
+      window.removeEventListener('hashchange', handleLocationChange);
+    };
   }, []);
 
   return (
