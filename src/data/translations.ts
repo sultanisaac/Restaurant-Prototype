@@ -158,7 +158,7 @@ const id: Translations = {
 
 const en: Translations = {
   prototype_disclaimer:
-    'This website is a PROTOTYPE for demo purposes. Not an official site. Prices, menu, location & contacts are placeholders.',
+    'This website is a PROTOTYPE for demo purposes. Not an official site. Prices, menu, location, & contact are examples only.',
   prototype_short: 'Prototype / Demo',
 
   nav_menu: 'Menu',
