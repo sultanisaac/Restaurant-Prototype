@@ -99,10 +99,10 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
                   key={link.href}
                   href={link.href}
                   onClick={(e) => handleNavClick(link, e)}
-                  className={`text-sm font-medium px-3 py-2 rounded-lg transition-all duration-200 cursor-pointer ${
+                  className={`text-sm font-medium px-3.5 py-2 rounded-lg transition-all duration-200 cursor-pointer ${
                     isActive
                       ? 'text-gold-300 bg-white/10 font-semibold'
-                      : 'text-cream-100/90 hover:text-white hover:bg-white/10'
+                      : 'text-cream-100/90 hover:text-white hover:bg-white/5 hover-underline-gold'
                   }`}
                 >
                   {link.label}
@@ -111,13 +111,19 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
             })}
           </nav>
 
-          {/* Desktop CTAs */}
-          <div className="flex items-center gap-2">
+          {/* Desktop CTAs & Live Operational Indicator */}
+          <div className="flex items-center gap-3">
+            {/* Live Status Pill (Bali Wok style) */}
+            <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-semibold text-cream-200 backdrop-blur-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>{lang === 'id' ? 'Buka Hari Ini 10:00–22:00' : 'Open Today 10:00–22:00'}</span>
+            </div>
+
             <a
               href={getReservationUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex text-sm font-semibold px-3 py-1.5 rounded-lg text-cream-100 hover:text-white hover:bg-white/10 transition-all duration-200"
+              className="hidden sm:flex text-sm font-semibold px-3 py-1.5 rounded-lg text-cream-100 hover:text-white hover:bg-white/10 hover-underline-gold transition-all duration-200"
             >
               {t(lang, 'reserve_btn')}
             </a>
@@ -126,7 +132,7 @@ export default function Header({ currentRoute = 'home' }: HeaderProps) {
               href={getOrderUrl(lang)}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 bg-chili-600 hover:bg-chili-700 text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 shadow-md shadow-chili-900/30 hover:shadow-lg hover:-translate-y-px"
+              className="hidden sm:flex items-center gap-2 bg-chili-600 hover:bg-chili-700 text-white text-sm font-bold px-4 py-2 rounded-full transition-all duration-200 shadow-md shadow-chili-900/30 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
             >
               <MessageCircle size={14} />
               {t(lang, 'order_btn')}

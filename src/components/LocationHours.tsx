@@ -61,7 +61,7 @@ export default function LocationHours() {
               {infoItems.map(({ icon: Icon, label, value, href, linkLabel }) => (
                 <div
                   key={label}
-                  className="bg-white rounded-2xl border border-cream-200/80 p-5 flex gap-4 hover:shadow-sm transition-all duration-300 hover:border-chili-200/30 group"
+                  className="bg-white rounded-2xl border border-cream-200/80 p-5 flex gap-4 hover-lift transition-all duration-300 hover:border-gold-400/30 group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-chili-50 flex items-center justify-center shrink-0 group-hover:bg-chili-100 transition-colors">
                     <Icon size={18} className="text-chili-600" />
@@ -111,7 +111,7 @@ export default function LocationHours() {
           </div>
 
           {/* Styled Premium Map Wrapper (Uses high-end styling instead of an empty box) */}
-          <div className="relative rounded-3xl overflow-hidden border border-cream-200/80 shadow-premium bg-bark-900 h-72 lg:h-auto lg:min-h-[400px] flex flex-col items-center justify-center text-center p-8 group">
+          <div className="relative rounded-3xl overflow-hidden border border-cream-200/80 shadow-premium bg-bark-900 h-72 lg:h-auto lg:min-h-[400px] flex flex-col items-center justify-center text-center p-8 group hover-lift">
             {/* Ambient overlay */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(44,26,16,0.85)_0%,rgba(20,10,5,0.95)_100%)] z-0" />
             <div className="absolute inset-0 bg-cover bg-center opacity-25 group-hover:scale-105 transition-transform duration-1000 z-0"

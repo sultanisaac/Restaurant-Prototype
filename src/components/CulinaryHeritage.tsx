@@ -40,12 +40,12 @@ export default function CulinaryHeritage() {
             >
               {/* Image Container with premium frame & effects */}
               <div className="w-full lg:w-1/2 group">
-                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] shadow-premium transition-transform duration-500 group-hover:scale-[1.01] border border-cream-200">
+                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] shadow-premium hover-lift border border-cream-200">
                   <img
                     src={story.imageUrl}
                     alt={lang === 'id' ? story.titleId : story.titleEn}
                     loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-spring group-hover:scale-106"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-bark-950/75 via-bark-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
                     <span className="text-white text-xs font-bold tracking-widest uppercase flex items-center gap-1.5">

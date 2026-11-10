@@ -4,6 +4,7 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { MenuProvider } from './contexts/MenuContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import DishMarquee from './components/ui/DishMarquee';
 import BestSellers from './components/BestSellers';
 import CulinaryHeritage from './components/CulinaryHeritage';
 import FamilySets from './components/FamilySets';
@@ -69,6 +70,7 @@ export default function App() {
               {route === 'home' && (
                 <>
                   <Hero />
+                  <DishMarquee />
                   <BestSellers />
                   <CulinaryHeritage />
                   <FamilySets />
