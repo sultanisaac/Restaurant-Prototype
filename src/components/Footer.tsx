@@ -82,7 +82,7 @@ export default function Footer() {
                   <a
                     href={link.href}
                     onClick={(e) => handleLinkClick(link, e)}
-                    className="text-sm text-bark-400 hover:text-gold-300 transition-colors duration-200 cursor-pointer"
+                    className="text-sm text-bark-400 hover:text-gold-300 hover-underline-gold transition-colors duration-200 cursor-pointer"
                   >
                     {link.label}
                   </a>

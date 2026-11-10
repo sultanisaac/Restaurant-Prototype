@@ -67,8 +67,38 @@ export default {
         'shimmer':    'shimmer 3s ease-in-out infinite',
         'bounce-slow':'bounceSlow 2.4s ease-in-out infinite',
         'pulse-gold': 'pulseGold 2s ease-in-out infinite',
+        'marquee':    'marquee 50s linear infinite',
+        'marquee-reverse': 'marqueeReverse 50s linear infinite',
+        'toast-in':   'toastIn 0.35s cubic-bezier(0.16,1,0.3,1) forwards',
+        'toast-out':  'toastOut 0.25s ease-in forwards',
+        'pulse-subtle': 'pulseSubtle 3s ease-in-out infinite',
+        'badge-pulse': 'badgePulse 2s ease-in-out infinite',
       },
       keyframes: {
+        marquee: {
+          '0%':   { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%':   { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        toastIn: {
+          '0%':   { opacity: '0', transform: 'translateY(-100%) scale(0.95)' },
+          '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        toastOut: {
+          '0%':   { opacity: '1', transform: 'translateY(0) scale(1)' },
+          '100%': { opacity: '0', transform: 'translateY(-100%) scale(0.95)' },
+        },
+        pulseSubtle: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%':      { transform: 'scale(1.03)', opacity: '0.85' },
+        },
+        badgePulse: {
+          '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+          '50%':      { opacity: '0.4', transform: 'scale(0.85)' },
+        },
         fadeUp: {
           '0%':   { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },

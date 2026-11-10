@@ -42,14 +42,14 @@ export default function MenuCard({ item, lang }: MenuCardProps) {
   const isBestseller = item.tabs.includes('bestseller');
 
   return (
-    <div className="group bg-white rounded-2xl border border-cream-200/80 hover:border-chili-200/60 hover:shadow-premium transition-all duration-300 overflow-hidden flex flex-col h-full animate-fade-in">
+    <div className="group bg-white rounded-2xl border border-cream-200/80 hover:border-gold-400/40 hover-lift transition-all duration-300 overflow-hidden flex flex-col h-full animate-fade-in">
       {/* Card Image Slot */}
       <div className="relative aspect-[16/10] overflow-hidden bg-cream-100">
         <img
           src={imageUrl}
           alt={name}
           loading="lazy"
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-spring"
+          className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-spring"
         />
         {/* Soft dark vignette on bottom of image for readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
@@ -100,7 +100,7 @@ export default function MenuCard({ item, lang }: MenuCardProps) {
           href={getOrderUrl(lang, name)}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center justify-center gap-2 bg-cream-100/70 hover:bg-chili-600 text-bark-800 hover:text-white border border-cream-200 hover:border-chili-600 text-xs font-bold py-3 rounded-xl transition-all duration-300 shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chili-400"
+          className="flex items-center justify-center gap-2 bg-cream-100/70 hover:bg-chili-600 text-bark-800 hover:text-white border border-cream-200 hover:border-chili-600 text-xs font-bold py-3 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-chili-400"
         >
           <MessageCircle size={14} />
           {t(lang, 'menu_add_wa')}
